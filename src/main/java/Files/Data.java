@@ -2,5 +2,6 @@ package Files;
 
 @lombok.Data
 public class Data {
-    private long id;
+    int id;
+    String name;
 }
