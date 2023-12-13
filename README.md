@@ -1,1 +1,1 @@
-# This is Database branch
+# This is MinIO branch where we get pictures
