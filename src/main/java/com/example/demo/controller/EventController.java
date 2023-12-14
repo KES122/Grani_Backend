@@ -1,18 +1,22 @@
-package controller;
+package com.example.demo.controller;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import model.Event;
+import lombok.RequiredArgsConstructor;
+import com.example.demo.model.Event;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import repository.EventRepository;
+import com.example.demo.repository.EventRepository;
 
 import java.util.List;
 
 @Api(description = "Иллюстрация работы")
 @RestController
-@RequestMapping("/api/events")
-public class EventController {
+@RequestMapping (EventController.PATH)
+@RequiredArgsConstructor
+public class EventController{
+
+    public static final String PATH = "/api";
 
     @Autowired
     private EventRepository eventRepository;
