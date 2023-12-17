@@ -1,2 +1,2 @@
-# This is api test branch
+# The project is almost ready. Communication between the database, swagger and API has been implemented
 
