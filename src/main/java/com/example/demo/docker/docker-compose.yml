@@ -2,14 +2,14 @@ version: '3.1'
 
 services:
   app:
-    image:  '5ffe43348317'
+    image:  '2bb5300f9c76'
     container_name: app
-    ports:
-      - '8081'
     environment:
-      - DB_URL =jdbc:postgresql://localhost:5432/test
+      - DB_URL = jdbc:postgresql://postgres:5432/test
       - DB_USER = postgres
       - DB_PASSWORD = admin
+    ports:
+    - 8081:8081
     depends_on:
       - postgres
   postgres:
@@ -18,5 +18,4 @@ services:
       POSTGRES_DB: test
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: admin
-    ports:
-      - '5432:5432'
+
