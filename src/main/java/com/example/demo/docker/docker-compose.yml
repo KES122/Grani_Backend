@@ -2,14 +2,14 @@ version: '3.1'
 
 services:
   app:
-    image:  '2bb5300f9c76'
+    image: '4d7272c14799'
     container_name: app
     environment:
-      - DB_URL = jdbc:postgresql://postgres:5432/test
-      - DB_USER = postgres
-      - DB_PASSWORD = admin
+      - DB_URL=jdbc:postgresql://postgres:1234/Grani
+      - DB_USERNAME=postgres
+      - DB_PASSWORD=admin
     ports:
-    - 8081:8081
+      - 80:80
     depends_on:
       - postgres
   postgres:
