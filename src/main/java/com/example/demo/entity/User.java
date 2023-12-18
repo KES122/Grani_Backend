@@ -21,8 +21,6 @@ public class User {
     public User() {
     }
 
-    // Геттеры, сеттеры, и другие методы
-
     @Override
     public String toString() {
         return "User{" +
