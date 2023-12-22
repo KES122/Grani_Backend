@@ -34,6 +34,7 @@ public class CategoriesController {
             summary = "Create a new category",
             description = "Create a new category with provided information"
     )
+    
     @PostMapping("/api/categories/create")
     public ResponseEntity<String> createCategory(@RequestBody CategoriesDTO categoriesDTO) {
         categoriesRepository.save(Categories.builder()
@@ -53,6 +54,7 @@ public class CategoriesController {
                 .build());
         return ResponseEntity.status(HttpStatus.CREATED).body("New category created");
     }
+
 
     @Operation(
             summary = "Get category by ID",
