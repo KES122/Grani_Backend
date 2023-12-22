@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.DTO.CategoriesDTO;
 import com.example.demo.entity.Categories;
+import com.example.demo.repository.CategoriesRepository;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -20,21 +21,6 @@ import java.util.List;
 public class CategoriesController {
 
     private final CategoriesRepository categoriesRepository;
-
-    @Operation(
-            summary = "Get all categories",
-            description = "Retrieve a list of all categories"
-    )
-    @GetMapping("/api/categories")
-    public List<Categories> showCategories() {
-        return categoriesRepository.findAll();
-    }
-
-    @Operation(
-            summary = "Create a new category",
-            description = "Create a new category with provided information"
-    )
-    
     @PostMapping("/api/categories/create")
     public ResponseEntity<String> createCategory(@RequestBody CategoriesDTO categoriesDTO) {
         categoriesRepository.save(Categories.builder()
@@ -54,6 +40,27 @@ public class CategoriesController {
                 .build());
         return ResponseEntity.status(HttpStatus.CREATED).body("New category created");
     }
+
+    @Operation(
+            summary = "Get all categories",
+            description = "Retrieve a list of all categories"
+    )
+    @GetMapping("/api/categories")
+    public List<Categories> showCategories() {
+        return categoriesRepository.findAll();
+    }
+
+    @Operation(
+            summary = "Create a new category",
+            description = "Create a new category with provided information"
+    )
+    @GetMapping("/test")
+    public String testTest(){
+        return "Hello world!";
+    }
+
+    
+
 
 
     @Operation(

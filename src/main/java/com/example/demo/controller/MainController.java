@@ -36,6 +36,12 @@ public class MainController {
     )
     @PostMapping("/api/register")
     public ResponseEntity<String> registerUser(@RequestBody UserDTO userDTO) {
+        // Проверка уникальности email
+        if (userRepository.findByEmail(userDTO.getEmail()) != null) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Email already exists");
+        }
+
+        // Создание нового пользователя, если email уникален
         userRepository.save(User.builder()
                 .email(userDTO.getEmail())
                 .password(userDTO.getPassword())
@@ -51,7 +57,8 @@ public class MainController {
     public ResponseEntity<String> loginUser(@RequestBody User user) {
         User foundUser = userRepository.findByEmail(user.getEmail());
         if (foundUser != null && foundUser.getPassword().equals(user.getPassword())) {
-            return ResponseEntity.ok("Login successful");
+            return ResponseEntity.ok("Login successful." + foundUser.getEmail());
+            // Возвращает объект пользователя (включая email) при успешной аутентификации
         }
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Login failed");
     }
