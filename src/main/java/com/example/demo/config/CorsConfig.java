@@ -10,8 +10,11 @@ public class CorsConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
-                .allowedOrigins("*") // Разрешить запросы от всех источников
-                .allowedMethods("*") // Разрешить все HTTP методы (GET, POST, PUT, DELETE и другие)
-                .allowedHeaders("*"); // Разрешить все заголовки
+                .allowedOriginPatterns("*")
+                .allowedMethods("*")
+                .allowedHeaders("*")
+                .allowCredentials(true) // Разрешает отправку учетных данных (например, куки, аутентификацию) через CORS
+                .maxAge(3600); // Максимальное время кэширования предопределенных ответов CORS (в секундах)
+
     }
 }

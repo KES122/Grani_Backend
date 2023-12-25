@@ -8,7 +8,7 @@ import lombok.*;
 @Entity
 @Builder
 @AllArgsConstructor
-@Table(name = "Travel1")
+@Table(name = "travel")
 public class Categories {
 
     @Id

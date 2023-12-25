@@ -3,14 +3,13 @@ package com.example.demo.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.Set;
 
 @Getter
 @Setter
 @Entity
 @Builder
 @AllArgsConstructor
-@Table(name = "Users")
+@Table(name = "users")
 public class User {
 
     @Id
@@ -21,14 +20,5 @@ public class User {
 
 
     public User() {
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", email='" + email + '\'' +
-                ", password='" + password +
-                '}';
     }
 }
